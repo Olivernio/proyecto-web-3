@@ -6,3 +6,7 @@ Proyecto semestral N°3.
 Integrantes:
  - Francisco Arriagada
  - Diego Silva
+
+El acceso como admin es:
+ - user: Oliver
+ - pass: 123

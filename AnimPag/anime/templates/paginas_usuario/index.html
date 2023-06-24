@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Lista de usuarios {% endblock %}
+
+{% block contenido %}
+<br>
+<br>
+<br>
+<div class="card mt-5">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Registre un nuevo usuario</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Usuarios</h4>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Imagen</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ usuario.id }}</td>
+                        <td>{{ usuario.username }}</td>
+                        <td>
+
+                            <img src="{{ usuario.foto.url }}" height="100"/>
+                            
+                        </td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="{% url 'editar' usuario.id %}" role="button">Editar</a>
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' usuario.id %}" role="button">Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

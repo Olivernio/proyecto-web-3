@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %} <link type="text/css" rel="stylesheet" href="{% static 'css/anime/estilos.css' %}" /> {% endblock %}
+
+{% block titulo %} Home {% endblock %}
+
+{% block contenido %} 
+
+
+            <input
+              type="text"
+              class="form-control me-2 w-50"
+              id="txtIndicador"
+              placeholder="Buscar un anime..."
+            />
+            <button
+              id="btn-cargar"
+              class="btn btn-primary"
+              type="button"
+            >
+              Buscar
+            </button>
+
+      <!-- Zona de GRID, de las cartas de la búsqueda de los animes -->
+      <div id="container-info" class="container m-5 align-content-center">
+        <div class="container mt-1">
+          <div class="row">
+            <div id="col-1" class="col-8"></div>
+            <div id="col-2" class="col-4"></div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="info"
+        class="text-center row row-cols-1 row-cols-sm-2 row-cols-md-3 m-5 align-content-center"
+      ></div>
+      <div id="container" class="container mt-1 p-2">
+        <div class="container mt-1">
+          <div class="row">
+            <div id="container-col1" class="col-sm-4"></div>
+            <div id="container-col2" class="col-sm-8"></div>
+          </div>
+        </div>
+      </div>
+
+    {% block js %} <script src="{% static 'js/anime/index.js' %}"></script> {% endblock %}
+
+{% endblock %}
+
+</html>

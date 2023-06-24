@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Register {% endblock %}
+
+{% block contenido %}
+
+{{error}}
+<form method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button>
+    Crear cuenta
+  </button>
+</form>
+
+{% endblock %}

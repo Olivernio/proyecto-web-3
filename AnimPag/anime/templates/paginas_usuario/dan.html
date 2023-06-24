@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %} Sword Art Online {% endblock %}
+{% block contenido %}
+<head>
+    <!-- Otros elementos en el head -->
+
+    <script src="{% static 'js/pag-anime.js' %}"></script>
+    <script src="{% static 'js/sciptSao.js' %}"></script>
+</head>
+<body>
+    <section>
+        <h2 class="title"></h2>
+        <div class="container">
+            <div id="video_player">
+                <video controls id="main-Video"></video>
+            </div>
+            <div class="playlistBx">
+                <div class="header">
+                    <div class="row">
+                        <span class="AllLessons"></span>
+                    </div>
+                </div>
+                <ul class="playlist" id="playlist">
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--<script src="../js/pag-anime.js"></script>
+    <script src="../js/sciptSao.js"></script>-->
+</body>
+</html>
+{% endblock %}

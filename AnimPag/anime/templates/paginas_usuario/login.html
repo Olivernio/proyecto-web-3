@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Login {% endblock %}
+
+{% block contenido %}
+  {{error}}
+  <form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button> Inisiar sesión </button>
+</form>
+
+{% endblock %}

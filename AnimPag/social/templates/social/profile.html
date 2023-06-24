@@ -14,9 +14,9 @@
 	{% if request.user.is_authenticated %}
 		{% if user.username != request.user.username %}
 			{% if user not in request.user.profile.following %}
-			<button><a class="follow-button" href="{% url 'follow' user %}">Follow</a></button>
+			<button><a class="follow-button" href="{% url 'follow' user %}">Seguir</a></button>
 			{% else %}
-			<button><a class="follow-button" href="{% url 'unfollow' user %}">Unfollow</a></button>
+			<button><a class="follow-button" href="{% url 'unfollow' user %}">Parar de seguir</a></button>
 			{% endif %}
 		{% endif %}
 	{% endif %}
@@ -27,16 +27,16 @@
 <!-- Follow items -->
 <div class="follow">
 	<div>
-		<h5>Post</h5>
+		<h5>Posts</h5>
 		<p>{{ user.posts.count }}</p>
 	</div>
 	<div>
-		<h5>Followers</h5>
+		<h5>Seguidores</h5>
 		<p>{{ user.profile.followers.count }}</p>
 
 	</div>
 	<div>
-		<h5>Following</h5>
+		<h5>Siguiendo</h5>
 		<p>{{ user.profile.following.count }}</p>
 	</div>
 </div>

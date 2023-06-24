@@ -25,26 +25,26 @@ def iniciar_sesion(request):
             return render(request, 'index_2.html')
 
 
-def register(request):
-    if request.method == 'GET':
-        return render(request, 'paginas_usuario/register.html',
-                      {'form': UserCreationForm})
-    else:
-        print(request.POST)
-        if request.POST['password1'] == request.POST['password2']:
-            try:
-                user = User.objects.create_user(
-                    username=request.POST['username'], password=request.POST['password1'])
-                user.save()
-                usuario = Usuario(username=request.POST['username'], password=request.POST['password1'])
-                usuario.save()
-                login(request, user)
-                return render(request, 'index_2.html', {'usuario': usuario})
-            except IntegrityError:
-                return render(request, 'paginas_usuario/register.html',
-                              {'form': UserCreationForm, 'error': 'El usuario ya existe.'})
-    return render(request, 'paginas_usuario/register.html',
-                  {'form': UserCreationForm, 'error': 'Contraseñas no coinciden.'})
+# def register(request):
+#     if request.method == 'GET':
+#         return render(request, 'paginas_usuario/register.html',
+#                       {'form': UserCreationForm})
+#     else:
+#         print(request.POST)
+#         if request.POST['password1'] == request.POST['password2']:
+#             try:
+#                 user = User.objects.create_user(
+#                     username=request.POST['username'], password=request.POST['password1'])
+#                 user.save()
+#                 usuario = Usuario(username=request.POST['username'], password=request.POST['password1'])
+#                 usuario.save()
+#                 login(request, user)
+#                 return render(request, 'index_2.html', {'usuario': usuario})
+#             except IntegrityError:
+#                 return render(request, 'paginas_usuario/register.html',
+#                               {'form': UserCreationForm, 'error': 'El usuario ya existe.'})
+#     return render(request, 'paginas_usuario/register.html',
+#                   {'form': UserCreationForm, 'error': 'Contraseñas no coinciden.'})
 
 
 def cerrar_sesion(request):

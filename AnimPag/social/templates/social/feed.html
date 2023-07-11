@@ -1,8 +1,10 @@
 {% extends 'social/layout.html' %}
 {% load humanize %}
-{% block content %}
+{% block feed %}
 
 {% for post in posts %}
+<br>
+
 <article>
     <div class="container-article">
         <img src="{{ post.user.profile.image.url }}">

@@ -4,13 +4,17 @@
 
 {% block contenido %}
 
-{{error}}
-<form method="POST">
-  {% csrf_token %}
-  {{form.as_p}}
-  <button>
-    Crear cuenta
-  </button>
-</form>
+
+
+<div class="container bg-dark">
+  {{error}}
+  <form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>
+      Crear cuenta
+    </button>
+  </form>
+</div>
 
 {% endblock %}

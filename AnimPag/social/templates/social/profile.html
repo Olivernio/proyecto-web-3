@@ -2,14 +2,24 @@
 {% block content %}
 
 <!-- Profile -->
-<div class="profile">
-	<img src="{{ user.profile.image.url }}">
-	{% if request.user.is_authenticated %}
-		{% comment %} {% if user.username == request.user.username %}
-			<button class="btn btn-success" type="submit" id="submit">Cambiar foto de perfil</button>
-		{% endif %} {% endcomment %}
-	{% endif %}
-	<h2>@{{ user.username }}</h2>
+
+<div class="profile bg-secondary container">
+	
+	<div class="container text-center">
+		<div class="row">
+			<div class="col col-lg-2">
+				<img src="{{ user.profile.image.url }}">
+			</div>
+			<div class="col ">
+			{% if request.user.is_authenticated %}
+			{% comment %} {% if user.username == request.user.username %}
+				<button class="btn btn-success" type="submit" id="submit">Cambiar foto de perfil</button>
+			{% endif %} {% endcomment %}
+			{% endif %}
+			<h2>@{{ user.username }}</h2>
+			  </div>
+		</div>
+	</div>
 
 	{% if request.user.is_authenticated %}
 		{% if user.username != request.user.username %}
@@ -20,27 +30,39 @@
 			{% endif %}
 		{% endif %}
 	{% endif %}
+
+	<!-- Follow items -->
+
+	<div class="container text-center follow">
+		<div class="row">
+		  <div class="col">
+			<div>
+			<h5>Posts</h5>
+			<p>{{ user.posts.count }}</p>
+		</div>
+		  </div>
+		  <div class="col">
+			<div>
+			<h5>Seguidores</h5>
+			<p>{{ user.profile.followers.count }}</p>
 	
+		</div>
+		  </div>
+		  <div class="col">
+			<div>
+			<h5>Siguiendo</h5>
+			<p>{{ user.profile.following.count }}</p>
+		</div>
+		  </div>
+		</div>
+	</div>
 	
 </div>
 
-<!-- Follow items -->
-<div class="follow">
-	<div>
-		<h5>Posts</h5>
-		<p>{{ user.posts.count }}</p>
-	</div>
-	<div>
-		<h5>Seguidores</h5>
-		<p>{{ user.profile.followers.count }}</p>
+<br>
+<br>
+<br>
 
-	</div>
-	<div>
-		<h5>Siguiendo</h5>
-		<p>{{ user.profile.following.count }}</p>
-	</div>
-</div>
-
-
+<p>Comentarios: </p>
 {{ block.super }}
 {% endblock %}

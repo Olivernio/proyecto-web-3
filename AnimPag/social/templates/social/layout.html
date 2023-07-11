@@ -168,20 +168,48 @@
 	<!-------------------------------------
 					Navigation Bar 
 	-------------------------------------->
-	<div class="main">
-		
-		<nav class="second-nav">
-			<a class="feed" href="{% url 'feed' %}">Inicio</a>
-			{% if request.user.is_authenticated %}
-			<a class="profile" href="{% url 'profile' request.user.username %}">Mi Perfil</a>
-			<a class="new" href="{% url 'post' %}">Crear nuevo post</a>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col bg-black">
+        <a class="feed" href="{% url 'feed' %}">Inicio</a>
+      </div>
+      
+        {% if request.user.is_authenticated %}
+        <div class="col bg-black">
+          <a class="profile" href="{% url 'profile' request.user.username %}">Mi Perfil</a>
+        </div>
+        <div class="col bg-black">
+			    
+			    <a class="new" href="{% url 'post' %}">Crear nuevo post</a>
+        </div>
 			{% endif %}
+    </div>
+  </div>
+	<div class="main">
+		<nav class="second-nav">
+			
+			
 		</nav>
 
 
 		{% block content %}
 
 		{% endblock content %}
+    
+
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          <div class="text-bg-dark p-3">
+            {% block feed %}
+            {% endblock feed %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+    
 
 
 
